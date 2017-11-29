@@ -87,4 +87,4 @@ function finalizaJogo(){
 // campo.addClass("campo-desativado");
 // frase.startsWith(digitado)
 // append or prepend
-// .hide();
+// .hide() or .show() or toggle or slideDown or slideUp or  slideToggle
