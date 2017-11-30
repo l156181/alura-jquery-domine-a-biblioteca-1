@@ -26,6 +26,10 @@ function reiniciaJogo(){
         campo.removeClass("campo-correto campo-errado");
     });    
 }
+function atualizaTempo(tempo){
+    tempoInicial = tempo;
+    $("#tempo-digitacao").text(tempo);
+}
 
 function atualizaTamanhoFrase(){    
     var arrayFrase = frase.split(" ");
@@ -35,14 +39,14 @@ function atualizaTamanhoFrase(){
     elementTamanhoFrase.text(numPalavras);
 }
 
-function inicializaCronometro(){
-    tempoRestante = tempoInicial;    
+function inicializaCronometro(){    
     botaoReiniciar.attr("disabled",true);
     
     clearInterval(intervalID);
     campo.off("focus");
     
     campo.one("focus",function(){   
+        tempoRestante = tempoInicial;    
         intervalID = setInterval(function(){
              tempoRestante--;
              $("#tempo-digitacao").text(tempoRestante);
@@ -57,6 +61,7 @@ function inicializaCronometro(){
 
 function inicializaContadores(){
     campo.on("input", function(){
+        frase = $(".frase").text();
         var conteudo = campo.val();
         var qtdPalavras = conteudo.split(/\s+/).length;
         $("#contador-palavras").text(qtdPalavras);
@@ -88,3 +93,4 @@ function finalizaJogo(){
 // frase.startsWith(digitado)
 // append or prepend
 // .hide() or .show() or toggle or slideDown or slideUp or  slideToggle
+// stop() - para as animações
