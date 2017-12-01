@@ -43,11 +43,5 @@ function buscaFrase(){
     })
     .always(()=>{
         $("#spinner").toggle();
-    })
-    
-    ;
-}
-
-function sincronizaPlacar(){
-
+    });
 }
